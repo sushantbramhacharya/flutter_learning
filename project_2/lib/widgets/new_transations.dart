@@ -22,6 +22,8 @@ class _NewTransationsState extends State<NewTransations> {
       return;
     }
     widget.addTransation(enteredTitle,double.parse(amountController.text));
+    //widget. to access function from widget class
+    Navigator.of(context).pop();
   }
 
   @override

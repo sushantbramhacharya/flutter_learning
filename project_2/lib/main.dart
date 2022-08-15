@@ -16,6 +16,8 @@ class MyApp extends StatelessWidget
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home:MyHomePage(),
+      theme: ThemeData(primarySwatch: Colors.green,
+      accentColor: Colors.amber),
       title: 'Flutter App',
     );
   }

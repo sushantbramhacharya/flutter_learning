@@ -17,13 +17,13 @@ class TransationList extends StatelessWidget {
                     padding: EdgeInsets.all(10),
                     decoration: BoxDecoration(
                       border: Border.all(
-                        color: Colors.purple,
+                        color: Theme.of(context).primaryColor,
                         width: 2)
                     ),
                     child:Text(
                       "\$${_transations[index].amount.toString()}",
                       style: TextStyle(fontWeight: FontWeight.bold,
-                      fontSize: 20,color: Colors.purple),
+                      fontSize: 20,color:Theme.of(context).primaryColor),
                     )
                   ),
                   Column(

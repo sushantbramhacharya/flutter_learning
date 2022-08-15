@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget
   Widget build(BuildContext context)
   {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home:MyHomePage(),
       title: 'Flutter App',
     );
@@ -24,6 +25,9 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.add))
+        ],
         title: Text("Flutter App"),
       ),
       body: ListView(
@@ -37,7 +41,9 @@ class MyHomePage extends StatelessWidget {
           elevation: 5,
         ),
         UserTransation()
-      ],)
+      ],),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
+      floatingActionButton: FloatingActionButton(child: Icon(Icons.add),onPressed: (){},),
     );
   }
 }

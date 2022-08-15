@@ -9,10 +9,9 @@ class TransationList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      child: ListView(
-            children: [
-              ..._transations.map((transation) {
-                return Card(child: Row(children: [
+      child: ListView.builder(
+        itemBuilder:((context, index) {
+          return Card(child: Row(children: [
                   Container(
                     margin: EdgeInsets.symmetric(vertical: 10,horizontal: 15),
                     padding: EdgeInsets.all(10),
@@ -22,7 +21,7 @@ class TransationList extends StatelessWidget {
                         width: 2)
                     ),
                     child:Text(
-                      "\$${transation.amount.toString()}",
+                      "\$${_transations[index].amount.toString()}",
                       style: TextStyle(fontWeight: FontWeight.bold,
                       fontSize: 20,color: Colors.purple),
                     )
@@ -30,10 +29,10 @@ class TransationList extends StatelessWidget {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(transation.title,
+                      Text(_transations[index].title,
                       style: TextStyle(fontSize: 18,
                       fontWeight: FontWeight.bold),),
-                      Text(DateFormat('dd MMM yyyy').format(transation.date),
+                      Text(DateFormat('dd MMM yyyy').format(_transations[index].date),
                       style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
@@ -42,8 +41,8 @@ class TransationList extends StatelessWidget {
                   )
                 ],)
                 );
-              } ).toList()
-            ],
+        }),
+        itemCount: _transations.length,
           ),
     );
   }

@@ -7,7 +7,13 @@ class NewTransations extends StatelessWidget {
   NewTransations(this.addTransation);
   void SubmitData()
   {
-    addTransation(titleController.text,double.parse(amountController.text));
+    final enteredTitle=titleController.text;
+    final enteredAmount=double.parse(amountController.text);
+    if(enteredAmount<=0||enteredTitle.isEmpty)
+    {
+      return;
+    }
+    addTransation(enteredTitle,double.parse(amountController.text));
   }
   @override
   Widget build(BuildContext context) {
@@ -21,6 +27,7 @@ class NewTransations extends StatelessWidget {
             TextField(decoration: InputDecoration(
               labelText: "Title",
             ),
+            onSubmitted: (_) => SubmitData(),
             controller: titleController
             // onChanged: (value)
             // {
@@ -30,7 +37,7 @@ class NewTransations extends StatelessWidget {
             TextField(decoration: InputDecoration(
               labelText: "Amount",
             ),
-            onSubmitted: (_) => SubmitData,
+            onSubmitted: (_) => SubmitData(),
             keyboardType: TextInputType.numberWithOptions(decimal: true),
             //numberWithOptions should be enable for decimals in IOS
             controller: amountController,

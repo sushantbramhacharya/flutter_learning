@@ -17,7 +17,16 @@ class MyApp extends StatelessWidget
       debugShowCheckedModeBanner: false,
       home:MyHomePage(),
       theme: ThemeData(primarySwatch: Colors.green,
-      accentColor: Colors.amber),
+      accentColor: Colors.amber,
+      fontFamily: 'Quicksand',
+      appBarTheme: AppBarTheme(
+      titleTextStyle: TextStyle(
+        fontFamily: "OpenSans",
+        fontWeight: FontWeight.bold,
+        fontSize: 20,
+        color: Colors.white
+      )
+      )),
       title: 'Flutter App',
     );
   }

@@ -39,16 +39,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   // String titleInput;
   final List<Transation> _userTransations=[
-    Transation(id: "t1",
-    title: "Shoes",
-    amount: 69.99, 
-    date: DateTime.now()
-    ),
-    Transation(id: "t2",
-    title: "Weekly Groceries",
-    amount: 26.99, 
-    date: DateTime.now()
-    )
+    // Transation(id: "t1",
+    // title: "Shoes",
+    // amount: 69.99, 
+    // date: DateTime.now()
+    // ),
+    // Transation(id: "t2",
+    // title: "Weekly Groceries",
+    // amount: 26.99, 
+    // date: DateTime.now()
+    // )
   ];
   void _addNewTransation(String title,double amount)
   {
@@ -86,7 +86,16 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           elevation: 5,
         ),
-        TransationList(_userTransations),
+        _userTransations.isEmpty?Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+          padding: EdgeInsets.all(10),
+          child: Text("No Transations added yet !")),
+          Image.network("https://cdn-icons-png.flaticon.com/512/594/594550.png",
+          scale: 8,)
+        ],
+      ): TransationList(_userTransations),
       ],),
       floatingActionButtonLocation: FloatingActionButtonLocation.miniCenterFloat,
       floatingActionButton: FloatingActionButton(child: Icon(Icons.add),onPressed: (){
